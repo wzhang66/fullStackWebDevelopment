@@ -9,6 +9,7 @@ class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("this will fail");
 		Assertions.fail("Oopps test fails");
 	}
 
