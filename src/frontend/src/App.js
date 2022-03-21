@@ -3,7 +3,8 @@ import './App.css';
 import {
     Layout,
     Menu,
-    Breadcrumb} from 'antd';
+    Breadcrumb,
+    Divider} from 'antd';
     
 import {
   DesktopOutlined,
@@ -55,7 +56,12 @@ function App() {
               <StudentTable />
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>By Weiwei</Footer>
+          <Footer style={{ textAlign: 'center' }}>
+            Designed and Developed By Weiwei
+            <Divider>
+              <a href='https://www.linkedin.com/in/weiwei-zhang-62323ba8/'>Personal LinkedIn</a>
+            </Divider>
+          </Footer>
         </Layout>
       </Layout>;
 }
