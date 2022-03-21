@@ -66,7 +66,7 @@ jobs:
           chmod +x mvnw && ./mvnw --no-transfer-progress clean package \
             -P build-frontend \
             -P jib-push-to-dockerhub \
-              -Dtag=${{steps.build-number.outputs.BUILD_NUMBER}}
+              -Dapp.image.tag=${{steps.build-number.outputs.BUILD_NUMBER}}
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
@@ -78,7 +78,7 @@ jobs:
         run: |
           BUILD_NUMBER=${{steps.build-number.outputs.BUILD_NUMBER}}
           echo -e "Current elasticbeanstalk/docker-compose.yml\n$(cat elasticbeanstalk/docker-compose.yml)"
-#          sed -i -E 's_(weiwei61/spring-react-fullstack:)([^"]*)_\1'${BUILD_NUMBER}'_' elasticbeanstalk/docker-compose.yml
+          sed -i -E 's_(weiwei61/spring-react-fullstack:)([^"]*)_\1'${BUILD_NUMBER}'_' elasticbeanstalk/docker-compose.yml
           echo -e "Current elasticbeanstalk/docker-compose.yml\n$(cat elasticbeanstalk/docker-compose.yml)"
           git config user.name github-actions
           git config user.email github-actions@github.com
